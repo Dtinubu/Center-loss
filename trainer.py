@@ -13,7 +13,7 @@ class Trainer(object):
             validation_dataloader, log_dir=False, max_epoch=100, resume=False,
             persist_stride=5, lamda=0.03, alpha=0.5):
 
-        self.log_dir = '/cmlscratch/dtinubu/clone/Center-loss'
+        self.log_dir = log_dir
         self.optimizer = optimizer
         self.model = model
         self.max_epoch = max_epoch
@@ -33,7 +33,8 @@ class Trainer(object):
         self.alpha = alpha
 
         if not self.log_dir:
-            self.log_dir = os.path.join(~, 'logs'
+            self.log_dir = os.path.join(os.path.dirname(
+                os.path.realpath(__file__)), 'logs')
         if not os.path.isdir(self.log_dir):
             os.mkdir(self.log_dir)
 
@@ -157,5 +158,5 @@ class Trainer(object):
             'training_losses': self.training_losses,
             'validation_losses': self.validation_losses
         }
-        state_path = os.path.join(model_dir,)
+        state_path = os.path.join(model_dir, file_name)
         torch.save(state, state_path)
