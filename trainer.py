@@ -6,7 +6,6 @@ from device import device
 from loss import compute_center_loss, get_center_delta
 
 
-
 class Trainer(object):
 
     def __init__(
@@ -14,7 +13,7 @@ class Trainer(object):
             validation_dataloader, log_dir=False, max_epoch=100, resume=False,
             persist_stride=5, lamda=0.03, alpha=0.5):
 
-        self.log_dir =  os.path.join('/cmlscratch','dtinubu' ,'datasets', 'test')
+        self.log_dir = log_dir
         self.optimizer = optimizer
         self.model = model
         self.max_epoch = max_epoch
@@ -144,9 +143,8 @@ class Trainer(object):
             .nonzero().size()[0]
         return matches
 
-    
     def persist(self, is_best=False):
-        model_dir = os.path.join(self.log_dir, arg.Network_name ,'models')
+        model_dir = os.path.join(self.log_dir, 'models')
         if not os.path.isdir(model_dir):
             os.mkdir(model_dir)
         file_name = (
@@ -160,6 +158,5 @@ class Trainer(object):
             'training_losses': self.training_losses,
             'validation_losses': self.validation_losses
         }
-        state_path = os.path.join(model_dir, file_name)
+        state_path = os.path.join(model_dir,)
         torch.save(state, state_path)
-        
