@@ -5,6 +5,9 @@ import torch
 from device import device
 from loss import compute_center_loss, get_center_delta
 
+print=("name of network")
+ network_name = 
+
 
 class Trainer(object):
 
@@ -144,7 +147,7 @@ class Trainer(object):
         return matches
 
     def persist(self, is_best=False):
-        model_dir = os.path.join(self.log_dir, arg.name ,'models')
+        model_dir = os.path.join(self.log_dir, network_name ,'models')
         if not os.path.isdir(model_dir):
             os.mkdir(model_dir)
         file_name = (
