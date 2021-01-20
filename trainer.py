@@ -158,4 +158,4 @@ class Trainer(object):
             'validation_losses': self.validation_losses
         }
         state_path = os.path.join(model_dir, file_name)
-        torch.save(state, state_path)
+        torch.save(state_path)
