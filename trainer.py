@@ -158,5 +158,5 @@ class Trainer(object):
             'training_losses': self.training_losses,
             'validation_losses': self.validation_losses
         }
-        state_path = '/cmlscratch','dtinubu','clone','Center-loss', 'logs', 'models' , file_name
-        torch.save(state_path)
+         state_path = os.path.join(model_dir, file_name)
+        torch.save(state, state_path)
