@@ -14,7 +14,7 @@ class Trainer(object):
             validation_dataloader, log_dir=False, max_epoch=100, resume=False,
             persist_stride=5, lamda=0.03, alpha=0.5):
 
-        self.log_dir =  os.path.join('/cmlscratch','dtinubu' ,'datasets', 'LFW')
+        self.log_dir =  os.path.join('/cmlscratch','dtinubu' ,'datasets', 'test')
         self.optimizer = optimizer
         self.model = model
         self.max_epoch = max_epoch
@@ -146,8 +146,6 @@ class Trainer(object):
 
     def persist(self, is_best=False):
         model_dir = os.path.join(self.log_dir, arg.Network_name ,'models')
-        if not os.path.isdir(model_dir):
-            os.mkdir(model_dir)
         file_name = (
             "epoch_{}_best.pth.tar" if is_best else "epoch_{}.pth.tar") \
             .format(self.current_epoch)
