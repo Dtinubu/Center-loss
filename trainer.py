@@ -33,7 +33,7 @@ class Trainer(object):
         self.lamda = lamda
         self.alpha = alpha
 
-       if not self.log_dir:
+        if not self.log_dir:
             self.log_dir = os.path.join(os.path.dirname(
                 os.path.realpath(__file__)), 'logs')
         if not os.path.isdir(self.log_dir):
