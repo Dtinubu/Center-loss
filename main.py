@@ -221,6 +221,9 @@ if __name__ == '__main__':
     parser.add_argument('--verify-images', type=str,
                         help='verify 2 images of face belong to one person,'
                              'split image pathes by comma')
+     parser.add_argument('--Network_name', type=str,
+                        help='verify 2 images of face belong to one person,'
+                             'split image pathes by comma')
 
     args = parser.parse_args()
     main(args)
