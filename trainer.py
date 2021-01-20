@@ -33,8 +33,7 @@ class Trainer(object):
         self.alpha = alpha
 
         if not self.log_dir:
-            self.log_dir = os.path.join(os.path.dirname(
-                os.path.realpath(__file__)), 'logs')
+            self.log_dir = os.path.join('cmlscratch','dtinubu','clone','Center-loss', 'logs')
         if not os.path.isdir(self.log_dir):
             os.mkdir(self.log_dir)
 
