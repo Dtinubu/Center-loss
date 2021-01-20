@@ -33,7 +33,7 @@ class Trainer(object):
         self.lamda = lamda
         self.alpha = alpha
 
-        if not self.log_dir:
+       if not self.log_dir:
             self.log_dir = os.path.join(os.path.dirname(
                 os.path.realpath(__file__)), 'logs')
         if not os.path.isdir(self.log_dir):
@@ -144,8 +144,11 @@ class Trainer(object):
             .nonzero().size()[0]
         return matches
 
+    
     def persist(self, is_best=False):
         model_dir = os.path.join(self.log_dir, arg.Network_name ,'models')
+        if not os.path.isdir(model_dir):
+            os.mkdir(model_dir)
         file_name = (
             "epoch_{}_best.pth.tar" if is_best else "epoch_{}.pth.tar") \
             .format(self.current_epoch)
@@ -158,4 +161,5 @@ class Trainer(object):
             'validation_losses': self.validation_losses
         }
         state_path = os.path.join(model_dir, file_name)
-        torch.save(state_path)
+        torch.save(state, state_path)
+        
