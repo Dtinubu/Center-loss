@@ -13,7 +13,7 @@ class Trainer(object):
             validation_dataloader, log_dir=False, max_epoch=100, resume=False,
             persist_stride=5, lamda=0.03, alpha=0.5):
 
-        self.log_dir = '/cmlscratch/dtinubu'
+        self.log_dir = '/cmlscratch/dtinubu/clone/Center-loss'
         self.optimizer = optimizer
         self.model = model
         self.max_epoch = max_epoch
