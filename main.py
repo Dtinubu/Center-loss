@@ -137,6 +137,7 @@ def evaluate(args):
         images_b = images_b.to(device)
 
         _, batched_embedings_a = model(images_a)
+        
         _, batched_embedings_b = model(images_b)
 
         start = args.batch_size * iteration
