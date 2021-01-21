@@ -15,7 +15,7 @@ from utils import download, generate_roc_curve, image_loader
 from metrics import compute_roc, select_threshold
 from imageaug import transform_for_infer, transform_for_training
 
-
+torch.cuda.empty_cache()
 def main(args):
     if args.evaluate:
         evaluate(args)
